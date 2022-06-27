@@ -1,0 +1,74 @@
+package com.company.errDp;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.StringTokenizer;
+public class ICoins {
+    static FastScanner fs=new FastScanner();
+    public static void main(String[] args) {
+        int n=fs.nextInt();
+
+        double[] dp=new double[n+10];
+        //dp[i]----> the probablity that we have i heads till now
+        dp[0]=1;
+        for (int coins=0;coins<n;coins++){
+            double val = fs.nextDouble();
+            for (int i=coins+1;i>=0;i--){
+                System.out.print(coins+"   "+val+"  "+i+"  "+dp[i]+"   ");
+                if (i==0){
+                    System.out.println();
+                }
+                else {
+                    System.out.println(dp[i-1]);
+                }
+
+                dp[i]= i==0?0:(dp[i-1]*val) + dp[i]*(1-val);
+            }
+        }
+        double ans=0;
+        for (int heads=0;heads<=n;heads++){
+            int tails=n-heads;
+            if (heads>tails){
+                ans+=dp[heads];
+            }
+        }
+        //System.out.println(ans);
+        System.out.printf("%.10f\n",ans);
+
+    }
+    static void sort(int[] a) {
+        ArrayList<Integer> l=new ArrayList<>();
+        for (int i:a) l.add(i);
+        Collections.sort(l);
+        for (int i=0; i<a.length; i++) a[i]=l.get(i);
+    }
+    static class FastScanner {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st=new StringTokenizer("");
+        String next() {
+            while (!st.hasMoreTokens())
+                try {
+                    st=new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
+        }
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+        double nextDouble(){
+            return Double.parseDouble(next());
+        }
+        int[] readArray(int n) {
+            int[] a=new int[n];
+            for (int i=0; i<n; i++) a[i]=nextInt();
+            return a;
+        }
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+    }
+}
