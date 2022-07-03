@@ -10,20 +10,24 @@ import java.util.StringTokenizer;
 public class ANewYearTransportation {
     static  FastScanner fs=new FastScanner();
     public static void main(String[] args) {
-        int n= fs.nextInt();int t= fs.nextInt();
-        int[] arr=fs.readArray(n-1);
-        boolean reached=false;
-        int curPos=1;
-        for (int i=0;i<n-1;i++){
-            if (i==curPos-1){
-                curPos+=arr[curPos-1];
-                if (curPos==t){
-                    reached=true;
-                }
-            }
+//        int n= fs.nextInt();int t= fs.nextInt();
+//        int[] arr=fs.readArray(n-1);
+//        boolean reached=false;
+//        int curPos=1;
+//        for (int i=0;i<n-1;i++){
+//            if (i==curPos-1){
+//                curPos+=arr[curPos-1];
+//                if (curPos==t){
+//                    reached=true;
+//                }
+//            }
+//
+//        }
+//        System.out.println(reached?"YES":"NO");
+        do {
+            System.out.println("hi");
 
-        }
-        System.out.println(reached?"YES":"NO");
+        }while (true);
 
 
     }
