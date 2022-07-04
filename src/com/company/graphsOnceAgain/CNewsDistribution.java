@@ -29,7 +29,7 @@ public class CNewsDistribution {
                 Queue<Integer> queue=new LinkedList<>();
                 queue.add( i);
                 while (!queue.isEmpty()){
-                    int x=queue.peek(); queue.remove();
+                    int x=queue.poll();
                     if (visited[x]) continue;
                     visited[x]=true;
                     components.add(x);
