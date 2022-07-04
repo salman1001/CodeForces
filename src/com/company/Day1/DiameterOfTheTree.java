@@ -20,7 +20,13 @@ public class DiameterOfTheTree {
         bfs(nodes[0],nodes);
         Node mostFar=far(nodes);
         bfs(mostFar,nodes);
-        System.out.println(3*far(nodes).dist);
+        Node most =far(nodes);
+        int disss=most.dist;
+        for (Node e:nodes) e.diam|=e.dist==disss;
+        bfs(most,nodes);
+        for (Node e:nodes) e.diam|=e.dist==disss;
+        for (Node ee:nodes) System.out.println(ee.diam?disss+1:disss);
+
 
     }
 
@@ -54,6 +60,7 @@ public class DiameterOfTheTree {
     static class Node {
         ArrayList<Node> adj=new ArrayList<>();
         int dist;
+        boolean diam=false;
 
     }
 }

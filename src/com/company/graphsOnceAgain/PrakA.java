@@ -8,29 +8,12 @@ public class PrakA {
     public static void main(String[] args) {
         int[] arr={9,9};
         Arrays.sort(arr);
-        int currLimit=1;
-        int temp=1;
-        int day=0;
-        for (int i=0;i< arr.length;i++){
-
-            if (temp<arr[i]){
-                do {
-                    temp+=currLimit;
-                    day++;
-                } while (temp<arr[i]);
-
-                currLimit+=1;
-                temp=currLimit;;
-
-            }
-            else {
-                day++;
-                currLimit+=1;
-                temp=currLimit;
-              //  System.out.print("day---"+ day+"   Temp---"+temp+"   ");
-            }
+        int  day=0;int cur=1;
+        for (int i=0;i<arr.length;i++){
+            day+=arr[i]/cur;cur++;
         }
-        System.out.println(day);
+        System.out.println(day+1);
+
 
 
 
