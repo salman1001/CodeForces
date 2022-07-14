@@ -36,7 +36,7 @@ public class TreeBasicsSloth {
 
             int aDist=a.depth-lca.depth;
             if (c<=aDist) {
-                out.println(a.goUp(c).id);
+                out.println(a.goUp(c));
             }
             else {
                 int bUp=totalDist-c;
@@ -62,6 +62,12 @@ public class TreeBasicsSloth {
                 if (adj.get(i)==par) continue;
                 adj.get(i).dfs0(this, depth+1);
             }
+
+//            for (Node ee:adj){
+//                if (ee!=par){
+//                    ee.dfs0(ee,depth+1);
+//                }
+//            }
         }
 
         public Node goUp(int nSteps) {
