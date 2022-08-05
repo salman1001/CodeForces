@@ -1,7 +1,6 @@
 package com.company.CodeforcesEducationalRound93;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class B {
     static Scanner sc=new Scanner(System.in);
