@@ -11,6 +11,7 @@ public class AIntroductionSegmentTreeOptimization {
     public static void main(String[] args) {
 
 
+
     }
 
 

@@ -8,27 +8,50 @@ import java.util.*;
 public class EMikeGeometryProblem {
     static FastScanner fs=new FastScanner();
     public static void main(String[] args) {
-      //  long[] l,r;
+        int n= fs.nextInt();int k= fs.nextInt();
+        long ans=0;
 
-        int n= fs.nextInt();
-        int k= fs.nextInt();
-     //   l=new long[n];
-      //  r=new long[n];
-        Map<Long,Long> map=new HashMap<>();
+        Map<Long,Long> active=new HashMap<>();
         for (int i=0;i<n;i++){
-            long a,b;
-            a= fs.nextLong();
-            b= fs.nextLong();
-            long var1=map.get(a).longValue();
-            long var2=map.get(b+1).longValue();
-            var2--;
-            var1++;
-            map.put(a,var1);
-            map.put(b+1,var2);
+            long l= fs.nextLong();
+            long r= fs.nextLong();
+//            long diff=r-l+1;
+//            active.put(l,diff);
+//            active.put(r,-diff);
+            active.putIfAbsent(l, 0L);
+             long val1=active.get(l);val1++;
+             active.put(l,val1);
+            active.putIfAbsent(r+1, 0L);
 
+            long val2=active.get(r+1);val2--;
+            active.put(r+1,val2);
+            ArrayList<Long> arrayList=new ArrayList<>();
+            for (Map.Entry<Long,Long> entry : active.entrySet()) arrayList.add(entry.getKey());
+            long curr=0;
+            for (int j=0;j< arrayList.size()-1;j++){
+                curr+=active.get(arrayList.get(j));
+                long size=arrayList.get(j+1)-arrayList.get(j);
+                if (curr>=k) ans=(ans+combinations(curr,k)*size)%1000000007;
+            }
         }
+        System.out.println(ans);
 
 
+
+
+    }
+        public static long combinations(long n, long r) {
+        long numerator = 1, denominator = 1;
+        if (r > n - r) {
+            r = n - r;
+        }
+        for (long i = 1L; i <= r; ++i) {
+            denominator *= i;
+        }
+        for (long i = n - r + 1L; i <= n; ++i) {
+            numerator *= i;
+        }
+        return  (long) numerator / denominator;
     }
 
 

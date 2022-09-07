@@ -45,21 +45,28 @@ public class DRescueNibel {
         }
         Arrays.sort(l);
         Arrays.sort(r);
-        int i=1;
-        int j=1;
+        int i=0;
+        int j=0;
         long on=0;
         long ans=0;
-        while (i<=n &&j<=n){
+        while (i<n &&j<n){
            // System.out.println(i+" "+n+" "+j);
-            if (l[i-1]<=r[j-1]){
-                if (on>=k-1){
-                   // ans=(ans+ combinations(on,k-1))%998244353;
-                   // ans=ans+Math.abs(i-j+1);
-                     ans=(ans+ combinations(on,k-1)*Math.abs(j-i))%998244353;
-
-                }
+            if (l[i]<=r[j]){
                 on++;
                 i++;
+
+
+                if (on>=k){
+
+                    //System.out.println("On has become   "+on+"  and i and j are  " +l[i-1]+"  "+r[j-1]);
+                    ans=(ans+ nCr(on,k))%998244353;
+                   // ans=ans+Math.abs(i-j+1);
+               //      ans=(ans+ combinations(on,k-1)*Math.abs(j-i))%998244353;
+
+                }
+
+
+
             }
             else {
                 on--;
@@ -74,19 +81,19 @@ public class DRescueNibel {
 
 
     }
-    public static long combinations(long n, long r) {
-        long numerator = 1, denominator = 1;
-        if (r > n - r) {
-            r = n - r;
-        }
-        for (long i = 1L; i <= r; ++i) {
-            denominator *= i;
-        }
-        for (long i = n - r + 1L; i <= n; ++i) {
-            numerator *= i;
-        }
-        return numerator / denominator;
-    }
+//    public static long combinations(long n, long r) {
+//        long numerator = 1, denominator = 1;
+//        if (r > n - r) {
+//            r = n - r;
+//        }
+//        for (long i = 1L; i <= r; ++i) {
+//            denominator *= i;
+//        }
+//        for (long i = n - r + 1L; i <= n; ++i) {
+//            numerator *= i;
+//        }
+//        return  (long) numerator / denominator;
+//    }
 
 
 
@@ -96,20 +103,21 @@ public class DRescueNibel {
 
 
     //
-//     static long nCr(long n,long r)
-//        {
-//            return fact(n) / (fact(r) *
-//                    fact(n - r));
-//        }
-//
-//        // Returns factorial of n
-//        static long fact(long n)
-//        {
-//            long res = 1;
-//            for (long i = 2; i <= n; i++)
-//                res = res * i;
-//            return res;
-//        }
+     static long nCr(long n,long r)
+        {
+            if (r==0||n-r==0 )return 1L;
+            return fact(n) / (fact(r) *
+                    fact(n - r));
+        }
+
+        // Returns factorial of n
+        static long fact(long n)
+        {
+            long res = 1;
+            for (long i = 2; i <= n; i++)
+                res = res * i;
+            return res;
+        }
         static void sort(int[] a) {
         ArrayList<Integer> l=new ArrayList<>();
         for (int i:a) l.add(i);
