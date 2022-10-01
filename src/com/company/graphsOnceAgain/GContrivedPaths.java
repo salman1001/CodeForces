@@ -87,6 +87,7 @@ public class GContrivedPaths {
    static void dijkstra(int  source){
         for (int i=0;i<vv;i++) {
             distances[i]=Long.MAX_VALUE;
+            vis[i]=false;
         }
         PriorityQueue<PqPair> pq=new PriorityQueue<>();
         distances[source]=0;

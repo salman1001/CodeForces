@@ -43,7 +43,7 @@ public class CSumInTheTree {
     static FastScanner fs=new FastScanner();
      static ArrayList<Long> sumValue=new ArrayList<>();
     static ArrayList<ArrayList<Integer>> listOfChildren =new ArrayList<>();
-   static  ArrayList value=new ArrayList<>();
+   static  ArrayList<Long> value=new ArrayList<>();
 
 
     // static ArrayList<ArrayList<Integer>> listOfEdges =new ArrayList<>();
@@ -54,6 +54,8 @@ public class CSumInTheTree {
 
         for (int i=0;i<n;i++){
             listOfChildren.add(i,new ArrayList<>());
+            value.add(0l);
+
         }
         for (int i=0;i<n-1;i++){
             int a;
@@ -67,6 +69,7 @@ public class CSumInTheTree {
            listOfChildren.get(a).add(i+1);
         }
         for (int i=0;i<n;i++){
+           // System.out.println("Called");
             sumValue.add(i, fs.nextLong());
         }
       //  double ans=sumValue.get(0);
@@ -75,7 +78,7 @@ public class CSumInTheTree {
         dfs(0,-1);
         boolean isPossible=true;
         for (int i=0;i<n;i++){
-            if (value.get(i).equals(-1)){
+            if (value.get(i)<0){
                 isPossible=false;
                 break;
             }
@@ -84,22 +87,14 @@ public class CSumInTheTree {
         else {
             System.out.println(ans);
         }
-
-
-
-
-
-
-
-
-     }
+    }
      static long ans=0;
       static void  dfs(int cur,int par){
         long s_parent=0;
         if (par!=-1) s_parent= sumValue.get(par);
-        if (sumValue.get(cur).equals(-1)){
-            long min=200000000;
-            for (int child =listOfChildren.get(cur).size();child>0;child--){
+        if (sumValue.get(cur)==-1){
+            long min=2000000000;
+            for (int child :listOfChildren.get(cur)){
                 min=Math.min(min, sumValue.get(child));
             }
             if (listOfChildren.get(cur).size()==0) min=s_parent;
@@ -110,10 +105,13 @@ public class CSumInTheTree {
             sumValue.set(cur,min);
 
         }
-        for (int child =listOfChildren.get(cur).size()-1;child>=0;child--){
-            dfs(listOfChildren.get(cur).get(child),cur);
+//        for (int child =listOfChildren.get(cur).size()-1;child>=0;child--){
+//            dfs(listOfChildren.get(cur).get(child),cur);
+//        }
+        for (Integer i:listOfChildren.get(cur)){
+            if(i!=cur) dfs(i,cur);
         }
-          System.out.println(cur+"  "+ (sumValue.get(cur)- s_parent));
+        //  System.out.println(cur+"  "+ (sumValue.get(cur)- s_parent));
         value.add(cur,sumValue.get(cur)- s_parent);
         ans+=(long)value.get(cur);
 

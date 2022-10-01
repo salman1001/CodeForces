@@ -1,22 +1,36 @@
-package com.company.numberTheory;
+package com.company.csesGeometry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class BEhAbAnDgCd {
+public class A {
+  //  static Scanner sc=new Scanner(System.in);
+ static FastScanner sc=new FastScanner();
+ static PrintWriter printWriter=new PrintWriter(System.out);
 
-    static void sort(int[] a) {
-        ArrayList<Integer> l=new ArrayList<>();
-        for (int i:a) l.add(i);
-        Collections.sort(l);
-        for (int i=0; i<a.length; i++) a[i]=l.get(i);
+    public static void main(String[] args) {
+        int tc= sc.nextInt();
+        for (int i=0;i<tc;i++){
+            long x1,y1,x2,y2,x3,y3;
+            x1= sc.nextLong();y1= sc.nextLong();
+            x2= sc.nextLong();y2= sc.nextLong();
+            x3= sc.nextLong();y3= sc.nextLong();
+            x2-=x1;y2-=y1;x3-=x1;y3-=y1;
+            long val=x2*y3-y2*x3;
+            if (val<0) printWriter.println("RIGHT");
+            else if ( val>0) printWriter.println("LEFT");
+            else printWriter.println("TOUCH");
+
+        }
+        printWriter.close();
+
+
     }
-
-     static class FastScanner {
+    static class FastScanner {
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st=new StringTokenizer("");
         String next() {
@@ -42,15 +56,4 @@ public class BEhAbAnDgCd {
         }
     }
 
-    public static void main(String[] args) {
-        FastScanner fastScanner=new FastScanner();
-        int tc=fastScanner.nextInt();
-        for (int i=0;i<tc;i++){
-            long ll=fastScanner.nextLong();
-            System.out.println(1+" "+(ll-1));
-
-        }
-
-
-    }
 }

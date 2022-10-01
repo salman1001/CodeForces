@@ -17,22 +17,14 @@ public class DiameterOfTheTree {
 
 
         }
-        bfs(nodes[0],nodes);
-        Node mostFar=far(nodes);
-        bfs(mostFar,nodes);
-        Node most =far(nodes);
-        int disss=most.dist;
-        for (Node e:nodes) e.diam|=e.dist==disss;
-        bfs(most,nodes);
-        for (Node e:nodes) e.diam|=e.dist==disss;
-        for (Node ee:nodes) System.out.println(ee.diam?disss+1:disss);
-
-
+        bfs(nodes[7],nodes);
+        int mostFar=far(nodes);
+        System.out.println(mostFar);
     }
 
-    private  static Node far(Node[] nodes) {
-        Node M=nodes[0];
-        for (Node nn:nodes) if (nn.dist> M.dist) M=nn;
+    private  static int far(Node[] nodes) {
+        int M=nodes[0].dist;
+        for (Node nn:nodes) if (nn.dist> M) M=nn.dist;
         return M;
 
 

@@ -12,17 +12,12 @@ public class A_MaximumGcd {
      static FastScanner fs=new FastScanner();
     public static void main(String[] args) {
         int tc=fs.nextInt();
-        int val;
-        for (int i=0;i<tc;i++)
-        {
-            val=fs.nextInt();
+
+        for (int i=0;i<tc;i++) {
+            int val=fs.nextInt();
             System.out.println(val/2);
-//            if (val%2==0){
-//              // gcd(val,val/2);
-//            }
-//            else {
-//               // gcd(val-1,val-1/2);
-//            }
+
+
         }
 
 
@@ -30,10 +25,6 @@ public class A_MaximumGcd {
 
     }
 
-//    private static void gcd(int i, int i1) {
-//        if (i1==0) System.out.println(i);
-//        else gcd(i1,i%i1);
-//    }
 
 
     static void sort(int[] a) {

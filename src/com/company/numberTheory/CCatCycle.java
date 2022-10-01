@@ -23,7 +23,6 @@ public class CCatCycle {
                 System.out.println(1+(b+isect)%a);
             }
         }
-
     }
     static void sort(int[] a) {
         ArrayList<Integer> l=new ArrayList<>();
