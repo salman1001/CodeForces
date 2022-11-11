@@ -44,17 +44,6 @@ public class EBearFriendshiCondition {
         nOfEdges[la]++;
         if (la==lb) return;
         if (sizes[la]>sizes[lb]) {
-
-//            int at = sizes[la];
-//            la = lb;
-//            lb = at;
-//            int d = a;
-//            a = b;
-//            b = a;
-
-
-
-
             relabel(b,la);
             sizes[la]+=sizes[lb];
             nOfEdges[la]+=nOfEdges[lb];

@@ -8,21 +8,25 @@ public class ConvexHull extends PrintWriter {
 
     void solve()  {
         int n = sc.nextInt();
+        long c= sc.nextLong();
+
         a = new long[n];
         for(int i = 0; i < n; i++) a[i] = sc.nextInt();
-        long[] b = new long[n];
-        for(int i = 0; i < n; i++) b[i] = sc.nextInt();
+//
+//        long[] b = new long[n];
+//        for(int i = 0; i < n; i++) b[i] = sc.nextInt();
+
 
         ConvexHullTrickMin lines = new ConvexHullTrickMin();
 
 
-        long dp = 0L;
-        lines.addLine(b[0],  0L);
+        long[] dp = new long[n];
+        lines.addLine(-2*a[0],a[0]*a[0]);
         for(int i = 1; i < n; i++) {
-            dp = lines.query(a[i]);
-            lines.addLine(b[i], dp);
+            dp[i] = lines.query(a[i])+a[i]*a[i]+c;
+            lines.addLine(-2*a[i],dp[i]+a[i]*a[i]);
         }
-        println(dp);
+        println(dp[n-1]);
     }
 
     long[] a;

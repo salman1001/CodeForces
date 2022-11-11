@@ -15,6 +15,7 @@ public class GContrivedPaths {
     static  FastScanner fs=new FastScanner();
     static long[] distances=new long[100005];
     static int[] kvals;
+
      static ArrayList<ArrayList<Pair>> arrayList=new ArrayList<>();
     static class Pair {
         int desti;
@@ -63,12 +64,12 @@ public class GContrivedPaths {
             arrayList.get(n).add(new Pair(i,arr[i]));
         }
         n++;
-        vv=n;
+        vv++;
         for (int i=0;i<k;i++) {
             int ss= fs.nextInt();ss--;
             // kvals[i]= ss;
             dijkstra(ss);
-            for (int t=0;t<n;t++) System.out.print(distances[t]+" ");
+            for (int t=0;t<n-1;t++) System.out.print(distances[t]+" ");
             System.out.println();
 
         }

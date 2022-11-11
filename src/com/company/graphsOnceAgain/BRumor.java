@@ -39,6 +39,7 @@ public class BRumor {
     static  long arr[];
     static  ArrayList<ArrayList<Integer>> adj;
     static boolean[] visited;
+
       static long  dfs(int curr){
           long min=arr[curr];
           visited[curr]=true;

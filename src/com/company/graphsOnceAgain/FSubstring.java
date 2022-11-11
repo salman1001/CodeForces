@@ -8,7 +8,7 @@ import java.util.*;
 public class FSubstring {
     static FastScanner fs=new FastScanner();
     static long[] indegree=new long[300005];
-    static ArrayList topSort=new ArrayList();
+    static ArrayList<Integer> topSort=new ArrayList();
     static long[] dp=new long[300005];
 
     static ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
@@ -32,7 +32,7 @@ public class FSubstring {
             count++;
             long a=queue.peek();
             queue.remove();
-            topSort.add(a);
+            topSort.add((int) a);
             for (long d:adj.get((int) a)){
                 indegree[(int) d]--;
                 if (indegree[(int) d]==0) queue.add(d);
@@ -46,11 +46,9 @@ public class FSubstring {
         for (char c='a';c<='z';c++){
             for (int i=0;i<n;i++) dp[i]=0;
 
-            for (int a=0;a<topSort.size();a++){
+            for (int a :topSort){
                 if (s.charAt(a)==c) dp[a]++;
-                for (int f:adj.get(a)){
-                    dp[f]=Math.max(dp[f],dp[a] );
-                }
+                for (int f:adj.get(a))  dp[f]=Math.max(dp[f],dp[a] );
                 ans=Math.max(ans,dp[a]);
 
             }
