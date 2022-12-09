@@ -108,14 +108,16 @@ public class CSumInTheTree {
 //        for (int child =listOfChildren.get(cur).size()-1;child>=0;child--){
 //            dfs(listOfChildren.get(cur).get(child),cur);
 //        }
+
         for (Integer i:listOfChildren.get(cur)){
             if(i!=cur) dfs(i,cur);
         }
         //  System.out.println(cur+"  "+ (sumValue.get(cur)- s_parent));
-        value.add(cur,sumValue.get(cur)- s_parent);
-        ans+=(long)value.get(cur);
+          value.add(cur,sumValue.get(cur)- s_parent);
+          ans+=(long)value.get(cur);
 
 
-     }
+
+      }
 
 }

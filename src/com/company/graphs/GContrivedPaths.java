@@ -16,13 +16,6 @@ public class GContrivedPaths {
             this.weight=to;
         }
 
-        public int getTo() {
-            return to;
-        }
-
-        public void setTo(int to) {
-            this.to = to;
-        }
 
         public long getWeight() {
             return weight;
