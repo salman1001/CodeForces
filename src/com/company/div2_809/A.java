@@ -23,15 +23,15 @@ public class A {
             for (int i=0;i<n;i++){
                 if (chars[arr[i]-1]!='A'){
 //                    stringBuilder.delete(i,i);
-//                    stringBuilder.insert(i,'A');
+//                    stringBuilder.insert(i,'RA');
                     chars[arr[i]-1]='A';
 
                 }
                 else {
                     chars[(m-(arr[i]))]='A';
 //                    stringBuilder.delete((m+1-arr[i]-1)%n,(m+1-arr[i]-1)%n);
-//                    stringBuilder.insert((m+1-arr[i]-1)%n,'A');
-                  //  stringBuilder.replace((m+1-arr[i]-1)%n,(m+1-arr[i]-1)%n,"A");
+//                    stringBuilder.insert((m+1-arr[i]-1)%n,'RA');
+                  //  stringBuilder.replace((m+1-arr[i]-1)%n,(m+1-arr[i]-1)%n,"RA");
                 }
             }
             for (int i=0;i<m;i++){

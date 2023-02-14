@@ -75,17 +75,17 @@ public class B {
                     Cn.l -= A.l;
                     Cn.r -= A.r;
                     if ((Bn.l * Cn.r - Bn.r * Cn.l) >= 0) {
-                  /*      B.l -= A.l;
-                        B.r -= A.r;
-                        C.l -= A.l;
-                        C.r -= A.r;*/
+                  /*      B.l -= RA.l;
+                        B.r -= RA.r;
+                        C.l -= RA.l;
+                        C.r -= RA.r;*/
                         break;
 
                     }
-//                    B.l += A.l;
-//                    B.r += A.r;
-//                    C.l += A.l;
-//                    C.r += A.r;
+//                    B.l += RA.l;
+//                    B.r += RA.r;
+//                    C.l += RA.l;
+//                    C.r += RA.r;
                     myList.remove(myList.size() - 1);
 
 

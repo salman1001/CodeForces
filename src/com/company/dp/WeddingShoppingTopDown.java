@@ -6,7 +6,7 @@ each garment (e.g. 3 shirt models, 2 belt models, 4 shoe models, . . . ) and a c
 budget, our task is to buy one model of each garment. We cannot spend more money than
 the given budget, but we want to spend the maximum possible amount.
 
-Suppose we have the following test case A with M = 20, C = 3:
+Suppose we have the following test case RA with M = 20, C = 3:
 Price of the 3 models of garment g=0 → 648 // the prices are not sorted in the input
 Price of the 2 models of garment g=1 → 5 10
 Price of the 4 models of garment g=2 → 1 535
